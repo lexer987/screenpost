@@ -49,6 +49,6 @@ sudo apt-get install google-cloud-sdk
 gcloud beta functions deploy helloHttp --trigger-http --runtime nodejs8
 ```
 
-https://console.cloud.google.com/functions/list?project=screenshotman&folder&organizationId
+https://console.cloud.google.com/functions/list
 
 コンソールからアップロードしたfunctionの3点マークから関数をテストを実行してテストすることができます
