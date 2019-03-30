@@ -2,7 +2,12 @@
 
 webページをキャプチャしてdiscordへ送信する
 
-nodeのバージョンは8.1.0を使っています
+![discord投稿画像例](http://i.imgur.com/K1w6lmQ.png "サンプル")
+
+動作検証環境
+
+- windows WSL
+- node 8.1.0
 
 install方法
 
@@ -14,7 +19,7 @@ cp .env.default .env
 .envのWEBHOOKURLにdiscordのwebhookのurlを設定する
 
 ```
-node amedas_run.js
+node run start
 ```
 でdiscordにscreenshotを送ることができます
 
@@ -54,4 +59,5 @@ gcloud beta functions deploy helloHttp --trigger-http --runtime nodejs8
 https://console.cloud.google.com/functions/list
 
 コンソールからアップロードしたfunctionの3点マークから関数をテストを実行してテストすることができます
+
 割当メモリサイズは編集から1GBにして実行しました

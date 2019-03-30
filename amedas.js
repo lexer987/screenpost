@@ -9,7 +9,6 @@ require('dotenv').config();
 const tmpImgName = 'tmpimage.png';
 
 module.exports = async (req, res) => {
-    console.log('start amedas');
     const browser = await puppeteer.launch({
         args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
@@ -46,14 +45,15 @@ function sendDiscord(){
             }
         ]
     };
-    var options = {
-        uri: webhookUrl,
-        headers: {
-            "Content-type": "multipart/form-data"
-        },
-        json: embedOptions
-    };
-    console.log(options);
+    // var options = {
+    //     uri: webhookUrl,
+    //     headers: {
+    //         "Content-type": "multipart/form-data"
+    //     },
+    //     json: embedOptions
+    // };
+    // console.log(options);
+    // 画像を投稿するときはmultipartで送る必要がある
     const formData = {
         attachments: [
             fs.createReadStream(os.tmpdir() + '/' + tmpImgName)
@@ -61,6 +61,7 @@ function sendDiscord(){
         payload_json: JSON.stringify(embedOptions)
 
     };
+    console.log(formData);
     var response = request.post({url: webhookUrl, formData: formData}, (err, response, body) => {
         if (err) {
             console.error('upload failed');
