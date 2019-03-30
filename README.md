@@ -19,7 +19,7 @@ cp .env.default .env
 .envのWEBHOOKURLにdiscordのwebhookのurlを設定する
 
 ```
-node run start
+npm run start
 ```
 でdiscordにscreenshotを送ることができます
 
