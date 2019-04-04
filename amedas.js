@@ -13,9 +13,9 @@ module.exports = async (req, res) => {
         args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
     const page = await browser.newPage();
-    await page.goto('https://coin360.com/');
+    await page.goto('https://coin360.com/', {waitUntil: 'networkidle2'});
 
-    await page.waitFor('.MapBox');
+    await page.waitForSelector('.MapBox');
     const tenkizu = await page.$('.MapBox');
     await tenkizu.screenshot({path: os.tmpdir() + '/' + tmpImgName});
     await browser.close();
