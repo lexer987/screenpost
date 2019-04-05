@@ -12,6 +12,7 @@
         "dotenv": "^7.0.0",
         "fs": "0.0.1-security",
         "moment": "^2.24.0",
+        "perf_hooks": "0.0.1",
         "puppeteer": "^1.13.0",
         "request": "^2.88.0"
     }

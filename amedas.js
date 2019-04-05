@@ -5,21 +5,26 @@ const fs = require('fs');
 const os = require('os');
 const moment = require('moment');
 require('dotenv').config();
-
+const { performance, PerformanceObserver } = require('perf_hooks');
 const tmpImgName = 'tmpimage.png';
 
 module.exports = async (req, res) => {
+    console.log('performance called1 : ' + performance.now());
     const browser = await puppeteer.launch({
         args: ['--no-sandbox', '--disable-setuid-sandbox']
     });
     const page = await browser.newPage();
-    await page.goto('https://coin360.com/', {waitUntil: 'networkidle2'});
+    console.log('performance2 called : ' + performance.now());
+    await page.goto('https://coin360.com/', {waitUntil: 'load', timeout: 200000});
+    console.log('performance3 called : ' + performance.now());
 
     await page.waitForSelector('.MapBox');
     const tenkizu = await page.$('.MapBox');
     await tenkizu.screenshot({path: os.tmpdir() + '/' + tmpImgName});
     await browser.close();
+    console.log('performance4 called : ' + performance.now());
     sendDiscord();
+    console.log('performance5 called : ' + performance.now());
     res.send('finished');
 };
 
