@@ -15,7 +15,7 @@ module.exports = async (req, res) => {
     });
     const page = await browser.newPage();
     console.log('performance2 called : ' + performance.now());
-    await page.goto('https://coin360.com/', {waitUntil: 'load', timeout: 200000});
+    await page.goto('https://coin360.com/', {waitUntil: 'load', timeout: 400000});
     console.log('performance3 called : ' + performance.now());
 
     await page.waitForSelector('.MapBox');
