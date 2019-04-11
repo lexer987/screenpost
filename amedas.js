@@ -11,7 +11,14 @@ const tmpImgName = 'tmpimage.png';
 module.exports = async (req, res) => {
     console.log('performance called1 : ' + performance.now());
     const browser = await puppeteer.launch({
-        args: ['--no-sandbox', '--disable-setuid-sandbox']
+        args: ['--no-sandbox',
+               '--disable-setuid-sandbox',
+               '-–disable-dev-shm-usage',
+               '--disable-gpu',
+               '--no-first-run',
+               '--no-zygote',
+               '--single-process',
+              ]
     });
     const page = await browser.newPage();
     console.log('performance2 called : ' + performance.now());
