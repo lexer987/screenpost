@@ -7,3 +7,4 @@
 
 const amedas = require('./amedas.js');
 exports.helloHttp = amedas;
+exports.helloPubSub = amedas;

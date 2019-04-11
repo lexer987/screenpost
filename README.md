@@ -53,7 +53,7 @@ functions call helloHttp
 
 ```
 sudo apt-get install google-cloud-sdk
-gcloud beta functions deploy helloHttp --trigger-http --runtime nodejs8
+gcloud beta functions deploy helloHttp --trigger-http --runtime nodejs8 --memory 1024
 ```
 
 https://console.cloud.google.com/functions/list
