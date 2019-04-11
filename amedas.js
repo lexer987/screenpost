@@ -45,15 +45,7 @@ function sendDiscord(){
         "embeds": [
             {
                 "title": "CoinHeatMap",
-                "url": "https://coin360.com/",
-                "fields": [
-                    {
-                        "name": ":thumbsup:いいね",
-                        "value": "6353",
-                        "inline":true
-                    },
-
-                ]
+                "url": "https://coin360.com/"
             }
         ]
     };
