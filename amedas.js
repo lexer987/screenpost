@@ -27,6 +27,8 @@ module.exports = async (req, res) => {
 
     await page.waitForSelector('.MapBox');
     const tenkizu = await page.$('.MapBox');
+
+    await page.evaluate(() => document.querySelector('.Popup').style.display = "none");
     await tenkizu.screenshot({path: os.tmpdir() + '/' + tmpImgName});
     await browser.close();
     console.log('performance4 called : ' + performance.now());
