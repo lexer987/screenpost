@@ -26,9 +26,13 @@ module.exports = async (req, res) => {
     console.log('performance3 called : ' + performance.now());
 
     await page.waitForSelector('.MapBox');
+    await page.waitForSelector('.LoaderView', {hidden: true});
     const tenkizu = await page.$('.MapBox');
-
-    await page.evaluate(() => document.querySelector('.Popup').style.display = "none");
+    await page.evaluate(() => {
+        if (document.querySelector('.Popup')) {
+            document.querySelector('.Popup').style.display = "none";
+        }
+    });
     await tenkizu.screenshot({path: os.tmpdir() + '/' + tmpImgName});
     await browser.close();
     console.log('performance4 called : ' + performance.now());
