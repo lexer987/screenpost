@@ -42,7 +42,7 @@ module.exports = async (req, res) => {
 };
 
 function sendDiscord(){
-    const webhookUrl = process.env.WEBHOOKURL;
+    const webhookUrl = process.env.WEBHOOKURL + "?wait=true";
 
     var embedOptions = {
         "username": "Coin360",
@@ -77,5 +77,7 @@ function sendDiscord(){
             console.error('upload failed');
         }
         console.log('upload success');
+        console.log('statusCode:', response && response.statusCode);
+        console.log(response);
     });
 }
